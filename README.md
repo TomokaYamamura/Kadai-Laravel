@@ -1,2 +1,5 @@
 # Kadai-Laravel
 Laravel開発入門
+
+※コミットに関して
+本来はChapterごとでの管理が望ましいが、予めChapter18まで進めてしまっていたため、Chapter3-Chapter18までを1コミットとし、19からChapterごとでのコミットとする
