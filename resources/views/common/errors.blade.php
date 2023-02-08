@@ -1,3 +1,4 @@
+<!-- chapter9 エラー表示テンプレート -->
 <!-- resources/views/common/errors.blade.php -->
 @if (count($errors) > 0)
     <!-- Form Error List -->

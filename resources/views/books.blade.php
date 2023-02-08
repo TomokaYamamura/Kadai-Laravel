@@ -1,6 +1,7 @@
 <!-- resources/views/books.blade.php -->
-@extends('layouts.app')
+@extends('layouts.app') <!-- ベーステンプレートの読み込み -->
 @section('content')
+    <!-- chapter9 パーツテンプレート -->
     <!-- Bootstrapの定形コード… -->
     <div class="card-body">
         <div class="card-title">
@@ -51,6 +52,7 @@
             </div>
         </form>
     </div>
+    <!-- chapter15 SESSIONの利用 -->
     @if (session('message'))
         <div class="alert alert-success">
             {{ session('message') }}
@@ -77,6 +79,7 @@
                                     <div> <img src="upload/{{$book->item_img}}" width="100"></div>
                                 </td>
 
+                                <!-- 課題1.1 -->
                                 <!-- 本: 更新ボタン -->
                                 <td>
                                     <form action="{{ url('booksedit/'.$book->id) }}" method="POST">
@@ -87,11 +90,11 @@
                                     </form>
                                 </td>
 
-                                <!-- 本: 削除ボタン -->
+                                <!-- chapter12 本: 削除ボタン -->
                                 <td>
                                     <form action="{{ url('book/'.$book->id) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
+                                        @csrf               <!-- CSRFからの保護 -->
+                                        @method('DELETE')   <!-- 疑似フォームメソッド -->
 
                                         <button type="submit" class="btn btn-danger">
                                             削除
@@ -105,6 +108,7 @@
                 </table>
             </div>
         </div>
+        <!-- chapter14 ページネーションの使用 -->
         <div class="row">
             <div class="col-md-4 offset-md-4">
                 {{ $books->links()}}

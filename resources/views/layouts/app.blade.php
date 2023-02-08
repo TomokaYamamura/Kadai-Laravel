@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- chapter9 ベーステンプレート -->
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -73,6 +74,7 @@
         </nav>
 
         <main class="py-4">
+            <!-- ここにパーツテンプレートで定義するsectionからendsectionの内容が読み込まれる -->
             @yield('content')
         </main>
     </div>

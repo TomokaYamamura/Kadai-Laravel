@@ -1,4 +1,5 @@
 <?php
+//chapter13 BooksControllerを作成する
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
@@ -10,21 +11,23 @@ use Auth;       //認証モデルを使用する
 
 class BooksController extends Controller
 {
-   //コンストラクタ （このクラスが呼ばれたら最初に処理をする）
+   //chapter16 コンストラクタ （このクラスが呼ばれたら最初に処理をする）
     public function __construct()
     {
         $this->middleware('auth');
     }
+    //課題2.1
     //本ダッシュボード表示
     public function index() {
         $books = Book::where('user_id',Auth::user()->id)
         ->orderBy('created_at', 'asc')
-        ->paginate(3);
+        ->paginate(3); //chapter14 ページネーションの使用
         return view('books', [
             'books' => $books
         ]);
     }
     
+    //課題2.2
     //更新画面
     public function edit($book_id){
         $books = Book::where('user_id',Auth::user()->id)->find($book_id);
@@ -93,9 +96,10 @@ class BooksController extends Controller
         $books->item_img = $filename;
         $books->published = $request->published;
         $books->save();
-        return redirect('/')->with('message', '本登録が完了しました');
+        return redirect('/')->with('message', '本登録が完了しました'); //chapter15 SESSIONの利用
     }
         
+    //課題2.3
     //削除処理
     public function destroy(Book $book) {
         $book->delete();

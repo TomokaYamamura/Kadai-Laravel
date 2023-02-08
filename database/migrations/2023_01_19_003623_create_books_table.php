@@ -1,5 +1,6 @@
 <?php
 
+//chapter5 データベースにテーブルを作成
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -19,7 +20,7 @@ class CreateBooksTable extends Migration
             $table->string('item_name');
             $table->integer('item_number');
             $table->integer('item_amount');
-            $table->string('item_img');     //Add:item_img
+            $table->string('item_img');     //Chapter17 Add:item_img
             $table->datetime('published');
             $table->timestamps();
         });
